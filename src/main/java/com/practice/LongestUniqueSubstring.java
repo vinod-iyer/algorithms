@@ -6,10 +6,12 @@ public class LongestUniqueSubstring {
         boolean[] occurenceArray = new boolean[128];
         int lengthOfSubstring = 0;
         int maxLengthSoFar = 0;
+        int substringIndex = 1;
+
         for (int index = 0; index < input.length(); ++index) {
             int asciiOfChar = (int) input.charAt(index);
             if (occurenceArray[asciiOfChar]) {
-                System.out.println("Size of substrings " + lengthOfSubstring);
+                print(substringIndex++, lengthOfSubstring);
                 if (maxLengthSoFar < lengthOfSubstring) {
                     maxLengthSoFar = lengthOfSubstring;
                 }
@@ -21,11 +23,17 @@ public class LongestUniqueSubstring {
                 lengthOfSubstring++;
             }
         }
+        print(substringIndex++, lengthOfSubstring);
         if (maxLengthSoFar < lengthOfSubstring) {
             maxLengthSoFar = lengthOfSubstring;
         }
         return maxLengthSoFar;
     }
+
+    private void print(int substringIndex, int lengthOfSubstring) {
+        System.out.println("Size of substring [" + substringIndex + "]" + lengthOfSubstring);
+    }
+
 
     public static void main(String[] args) {
         System.out.println(new LongestUniqueSubstring().getLengthOfLongestUniqueSubstring("JGDJEPHABCH"));
