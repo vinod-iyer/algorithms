@@ -14,7 +14,6 @@ public class StringUtility {
                 occurrenceArray[(int) character] = true;
             }
         });
-
         return returnBoolean.get();
     }
 
