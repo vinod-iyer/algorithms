@@ -33,5 +33,6 @@ public class LongestUniqueSubstring {
         System.out.println(new LongestUniqueSubstring().getLengthOfLongestUniqueSubstring("JGDJ"));
         System.out.println(new LongestUniqueSubstring().getLengthOfLongestUniqueSubstring("JJ"));
         System.out.println(new LongestUniqueSubstring().getLengthOfLongestUniqueSubstring("J"));
+        System.out.println(new LongestUniqueSubstring().getLengthOfLongestUniqueSubstring(""));
     }
 }
