@@ -105,6 +105,10 @@ public class MinimumPlatformsInStation {
         departures = new int[]{910};
         System.out.println(numberOfMinimumPlatforms(arrivals, departures));
 
+        arrivals = new int[]{};
+        departures = new int[]{};
+        System.out.println(numberOfMinimumPlatforms(arrivals, departures));
+
         arrivals = new int[]{900, 920};
         departures = new int[]{910};
         System.out.println(numberOfMinimumPlatforms(arrivals, departures));
