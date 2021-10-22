@@ -1,6 +1,37 @@
 package com.practice;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LongestUniqueSubstring {
+
+    private static int getMaxLengthOfTheUniqueSubstring(String input) {
+
+        if (input == null || input.isBlank()) {
+            return -1;
+        }
+
+        if (input.length() == 1) {
+            return 1;
+        }
+
+        int maxSoFar = Integer.MIN_VALUE;
+        int leftPointer = 0, rightPointer = 0;
+
+        Set<Character> uniqueChars = new HashSet<>();
+
+        while (rightPointer < input.length()) {
+            if (!uniqueChars.contains(input.charAt(rightPointer))) {
+                uniqueChars.add(input.charAt(rightPointer));
+                rightPointer +=1;
+                maxSoFar = Math.max(uniqueChars.size(), maxSoFar);
+            } else {
+                uniqueChars.remove(input.charAt(leftPointer));
+                leftPointer += 1;
+            }
+        }
+        return maxSoFar;
+    }
 
     public int getLengthOfLongestUniqueSubstring(String input) {
         boolean[] occurenceArray = new boolean[128];
@@ -41,6 +72,8 @@ public class LongestUniqueSubstring {
         System.out.println(new LongestUniqueSubstring().getLengthOfLongestUniqueSubstring("JGDJ"));
         System.out.println(new LongestUniqueSubstring().getLengthOfLongestUniqueSubstring("JJ"));
         System.out.println(new LongestUniqueSubstring().getLengthOfLongestUniqueSubstring("J"));
-        System.out.println(new LongestUniqueSubstring().getLengthOfLongestUniqueSubstring(""));
+        System.out.println(new LongestUniqueSubstring().getLengthOfLongestUniqueSubstring("abcbcaabbc"));
+
+        System.out.println( getMaxLengthOfTheUniqueSubstring("JGDJEPHABCHABCDEFGIJ"));
     }
 }
