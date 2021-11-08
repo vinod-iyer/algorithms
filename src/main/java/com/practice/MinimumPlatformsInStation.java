@@ -62,6 +62,10 @@ else{
 }
 departuresPerPlatform[910]
 
+questions to be asked?
+- is arrival & departure always paired?
+
+
 */
 public class MinimumPlatformsInStation {
 
